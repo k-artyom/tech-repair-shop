@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Repair Shop - Реєстрація</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <h2>Реєстрація</h2>
+        <form id="registerForm">
+            <label for="registerName">Ім'я:</label>
+            <input type="text" id="registerName" required>
+
+            <label for="registerPhone">Номер телефону:</label>
+            <input type="tel" id="registerPhone" required>
+
+            <label for="registerPassword">Пароль:</label>
+            <input type="password" id="registerPassword" required minlength="6">
+
+            <button type="submit" class="btn primary-btn">Зареєструватись</button>
+        </form>
+        <p>Вже є акаунт? <a href="auth.html">Увійти</a></p>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

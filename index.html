@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Repair Shop - Головна</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Логотип Tech Repair Shop">
+                <span>Tech Repair Shop</span>
+            </div>
+            <nav>
+                <button id="loginBtn" class="btn">Вхід</button>
+                <button id="logoutBtn" class="btn" style="display: none;">Вихід</button>
+                <button id="myOrdersBtn" class="btn">Мої замовлення</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Швидкий та якісний ремонт вашої техніки</h1>
+                    <p>Довірте нам свій пристрій, і ми повернемо його до життя!</p>
+                    <button id="orderPersonalServiceBtn" class="btn primary-btn">Замовити персональну послугу ремонту</button>
+                </div>
+                <div class="advantages">
+                    <h3>Наші переваги:</h3>
+                    <ul>
+                        <li><i class="icon-check"></i> Досвідчені майстри</li>
+                        <li><i class="icon-check"></i> Оригінальні запчастини</li>
+                        <li><i class="icon-check"></i> Гарантія на ремонт</li>
+                        <li><i class="icon-check"></i> Швидке виконання</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters-gallery">
+            <div class="container">
+                <div class="filters">
+                    <input type="text" id="searchKeyword" placeholder="Пошук за ключовими словами...">
+                    <select id="filterDeviceType">
+                        <option value="">Тип пристрою</option>
+                    </select>
+                    <select id="filterBrand">
+                        <option value="">Бренд пристрою</option>
+                    </select>
+                    <select id="filterProblem">
+                        <option value="">Тип проблеми</option>
+                    </select>
+                    <select id="sortOrder">
+                        <option value="cheaper">Спочатку дешевше</option>
+                        <option value="dearer">Спочатку дорожче</option>
+                    </select>
+                    <button id="applyFiltersBtn" class="btn">Шукати</button>
+                </div>
+
+                <div class="service-gallery" id="serviceGallery">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tech Repair Shop. Всі права захищені.</p>
+            <p>Адреса: м. Київ, вул. Технічна, 10</p>
+            <p>Номер майстра: +380 12 345 6789</p>
+            <button id="footerMyOrdersBtn" class="btn">Мої замовлення</button>
+            <button id="adminLoginBtn" class="btn">Увійти як адміністратор</button>
+        </div>
+    </footer>
+
+    <div id="personalOrderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Замовити персональну послугу ремонту</h2>
+            <form id="personalOrderForm">
+                <label for="personalName">Ім'я:</label>
+                <input type="text" id="personalName" required>
+
+                <label for="personalPhone">Номер телефону:</label>
+                <input type="tel" id="personalPhone" required>
+
+                <label for="personalDeviceType">Тип пристрою:</label>
+                <select id="personalDeviceType" required></select>
+
+                <label for="personalBrand">Бренд пристрою:</label>
+                <select id="personalBrand" required></select>
+
+                <label for="personalProblem">Опис проблеми:</label>
+                <textarea id="personalProblem" rows="4" required></textarea>
+
+                <label for="personalImageUrl">Посилання на зображення:</label>
+                <input type="url" id="personalImageUrl">
+
+                <button type="submit" class="btn primary-btn">Замовити ремонт</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="serviceOrderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Замовити послугу</h2>
+            <form id="serviceOrderForm">
+                <label for="serviceOrderName">Ім'я:</label>
+                <input type="text" id="serviceOrderName" required readonly>
+
+                <label for="serviceOrderPhone">Номер телефону:</label>
+                <input type="tel" id="serviceOrderPhone" required readonly>
+
+                <label for="serviceOrderDeviceType">Тип пристрою:</label>
+                <input type="text" id="serviceOrderDeviceType" required readonly>
+
+                <label for="serviceOrderBrand">Бренд пристрою:</label>
+                <input type="text" id="serviceOrderBrand" required readonly>
+
+                <label for="serviceOrderProblem">Тип проблеми:</label>
+                <input type="text" id="serviceOrderProblem" required readonly>
+
+                <label for="serviceOrderImageUrl">Посилання на зображення:</label>
+                <input type="url" id="serviceOrderImageUrl">
+
+                <label for="serviceOrderPrice">Ціна:</label>
+                <input type="text" id="serviceOrderPrice" readonly>
+
+                <label for="serviceOrderRepairTerm">Термін ремонту:</label>
+                <input type="text" id="serviceOrderRepairTerm" readonly>
+
+                <button type="submit" class="btn primary-btn">Підтвердити замовлення</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="myOrdersModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Мої замовлення</h2>
+            <div id="userOrdersList">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/utils.js"></script>
+    <script src="js/servicesData.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
